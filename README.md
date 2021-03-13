@@ -23,7 +23,7 @@ Notable features of this container.
 - An example mounted volume that is commented out. You must remove the comment marks for the volume statement and the map statement in the docker-compose.yml file, to enable it. I strongly recommend changing the source folder. The mounted volume is disabled by default however.
   - /srv/storage/projects/websites/flask (the source) is mapped into the container at, /usr/local/apache2/flask (the destination)
   - To fully enable the mounted folder, you must also uncomment the section items defining /usr/local/apache2/flask, in the my-httpd.conf file as well. Again, if you are unfamiliar with Apache, please see the Apache documentation.
-- Finally, a default, super simple example Flask App is enabled by default. As mentioned in the comment about the example mounted volume, you can uncomment the sections in my-httpd.conf and the docker-compose file to enable the use of the mounted folder for custom flask apps (or just dump copy your code into /usr/local/apache2/htdocs inside the Dockerfile and replace the example)
+- Finally, a default, super simple example Flask App is enabled by default. As mentioned in the comment about the example mounted volume, you can uncomment the sections in my-httpd.conf and the docker-compose file to enable the use of the mounted folder for custom flask apps (or just dump a copy of your code into /usr/local/apache2/htdocs inside the Dockerfile and replace the example)
 
 Ready Container For Production
 ==============================
