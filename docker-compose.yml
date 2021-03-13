@@ -1,0 +1,15 @@
+version: '3'
+services:
+  web:
+    build: .
+    environment:
+      - TZ=America/New_York
+      - DEBIAN_FRONTEND=noninteractive
+    restart: always
+    container_name: flask
+    ports:
+    - "9090:80/tcp"
+    - "9443:443/tcp"
+    - "5000:5000/tcp"
+    volumes:
+    - /srv/storage/projects/websites/flask:/usr/local/apache2/flask
