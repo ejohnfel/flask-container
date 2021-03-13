@@ -32,8 +32,8 @@ For starters, if you look in the Dockerfile, it lists a number of items that can
 
 Second, you will want to include SSL certs, customize the Apache conf file add any Flask, Apache or "other" libraries and extensions as you build out the container.
 
-Security matters to, the example base container includes adding some users and groups in the enviroment to facilitate the web server's access to files OUTSIDE the container that may be mounted inside it.
+Security matters to, the example base container includes adding some users and groups in the enviroment to facilitate the web server's access to files OUTSIDE the container that may be mounted inside it. PLEASE PLEASE review Apache's documentation on security before deploying this container into production before doing so. The intent of this repo is to demonstrate how to make a Flask container. I work in Information Security by trade, PLEASE don't give me more work, secure your stuff, just don't deploy it blindly. Thank You.
 
-You can eliminate this requirement by include all the code in the container, but more then likely you will want to customize this too, both the user/groups/perms and the mounted volumes.
+You can eliminate this requirement by including all the code in the container, but more then likely you will want to customize this too, both the user/groups/perms and the mounted volumes.
 
 Lastly, the ports exposed by the docker-compose.yml file will NOT be appropriate for any production install, you will want to alter these to expose the normal HTTP/HTTPS ports, or a select set of ports appropriate to your installation requirements.
