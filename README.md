@@ -5,13 +5,22 @@ The basic Flask container comes configured with an extremely BASIC Flask app. Ju
 
 The container files, the README and other code here are to provide examples, not to teach Flask. It is assumed you have some knowledge of Flask (or simply need a container or Flask starting point). Please find a Flask tutorial or book for your extended needs.
 
+For Apache config details, see the Official Apache container page on Docker Hub. However, please note, the my-http.conf supplied with this rep DOES include some customizations and sample items, please just don't blow it away until you are sure you don't need it.
+
 Notable features of this container.
-1. This container is based on the Official Apache container (which is subject to change and may break this example)
-2. This container, while built to enable an easy entry into a Flask container, is not an official Flask distribution; I am just some guy who needed a Flask container.
-3. The rep and project contains a number of ease-of-use items that I use to dev all my containers.
-	A) Optional alternate ENTRYPOINT for the container; the script allows for customization of the container startup sequence.
-	B) A makefile to facilitate quick builds, deploys, testing, shell access to the container, among other minor things
-	C) No warranties. Use at your own risk.
+- This container is based on the Official Apache container (which is subject to change and may break this example)
+- This container, while built to enable an easy entry into a Flask container, is not an official Flask distribution; I am just some guy who needed a Flask container.
+- The rep and project contains a number of ease-of-use items that I use to dev all my containers.
+  - Optional alternate ENTRYPOINT for the container; the script allows for customization of the container startup sequence.
+  - A makefile to facilitate quick builds, deploys, testing, shell access to the container, among other minor things.
+  - No warranties. Use at your own risk.
+- The exposed ports selected for this example are likely not suitable for production deployments, you will want to change these. They are created this way because I often do not have the default ports available for dev purposes.
+  - Port 9090 is the external container port for 80
+  - Port 9443 is the external container port for 443
+  - Port 5000 is a personal preference for the internal Flask web serverused for dev and debugging
+- An example mounted volume that is commented out. You must remove the comment mark to enable it. I strongly recommend changing source folder. The mounted volume is disabled by default however.
+  - /srv/storage/projects/websites/flask is mapped into the container at, /usr/local/apache2/flask
+- Finally, a default, super simple example Flask App is enabled by default. As mentioned in the comment about the example mounted volume, you can uncomment the sections in my-httpd.conf and the docker-compose file to enable the use of the mounted folder for custom flask apps (or just dump copy your code into /usr/local/apache2/htdocs inside the Dockerfile and replace the example)
 
 Ready Container For Production
 ==============================
@@ -24,3 +33,5 @@ Second, you will want to include SSL certs, customize the Apache conf file add a
 Security matters to, the example base container includes adding some users and groups in the enviroment to facilitate the web server's access to files OUTSIDE the container that may be mounted inside it.
 
 You can eliminate this requirement by include all the code in the container, but more then likely you will want to customize this too, both the user/groups/perms and the mounted volumes.
+
+Lastly, the ports exposed by the docker-compose.yml file will NOT be appropriate for any production install, you will want to alter these to expose the normal HTTP/HTTPS ports, or a select set of ports appropriate to your installation requirements.

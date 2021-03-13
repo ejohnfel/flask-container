@@ -28,7 +28,7 @@ clean:
 	@docker image rm $(CNTR)_$(SVC)
 
 inter:
-	@../scripts/clean_intermediates
+	@./clean_intermediates
 
 extract:
 	@docker run --rm $(SRCIMG) cat /usr/local/apache2/conf/httpd.conf > my-httpd.conf
