@@ -15,8 +15,8 @@ Notable features of this container.
   - A makefile to facilitate quick builds, deploys, testing, shell access to the container, among other minor things.
   - No warranties. Use at your own risk.
 - The exposed ports selected for this example are likely not suitable for production deployments, you will want to change these. They are created this way because I often do not have the default ports available for dev purposes.
-  - Port 9090 is the external container port for 80
-  - Port 9443 is the external container port for 443
+  - Port 9090 is the external container port for 80 (HTTP)
+  - Port 9443 is the external container port for 443 (HTTPS)
   - Port 5000 is a personal preference for the internal Flask web server used for dev and debugging. If you do not use the internal Flask web server for anything, ignore or remove this. If you intend to use it, then you must define the Flask server to use port 5000 or change the mapping in the docker-compose file to match what you want to use.
   - You might notice the EXPOSE statements in the 'Dockerfile'. In the event you do not know, these are just a documentation feature and have no bearing on actual ports being exposed. I mention it here because, well, if you change the ports in the docker-compose file, you might want to document those changes in the 'Dockerfile'. I am me, you are you, I can't force you to be orderly, but it's the right thing to do. You do you.
 - An example mounted volume that is commented out. You must remove the comment marks for the volume statement and the map statement in the docker-compose.yml file, to enable it. I strongly recommend changing source folder. The mounted volume is disabled by default however.
