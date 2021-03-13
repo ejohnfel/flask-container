@@ -5,12 +5,12 @@ The basic Flask container comes configured with an extremely BASIC Flask app. Ju
 
 The container files, the README and other code here are to provide examples, not to teach Flask. It is assumed you have some knowledge of Flask (or simply need a container or Flask starting point). Please find a Flask tutorial or book for your extended needs.
 
-For Apache config details, see the Official Apache container page on Docker Hub. However, please note, the my-http.conf supplied with this rep DOES include some customizations and sample items, please just don't blow it away until you are sure you don't need it.
+For Apache config details, see the Official Apache container page on Docker Hub. However, please note, the my-http.conf supplied with this repo DOES include some customizations and sample items, please just don't blow it away until you are sure you don't need it.
 
 Notable features of this container.
 - This container is based on the Official Apache container (which is subject to change and may break this example)
 - This container, while built to enable an easy entry into a Flask container, is not an official Flask distribution; I am just some guy who needed a Flask container.
-- The rep and project contains a number of ease-of-use items that I use to dev all my containers.
+- The repo and project contains a number of ease-of-use items that I use to dev all my containers.
   - Optional alternate ENTRYPOINT for the container; the script allows for customization of the container startup sequence.
   - A makefile to facilitate quick builds, deploys, testing, shell access to the container, among other minor things.
   - No warranties. Use at your own risk.
@@ -26,14 +26,14 @@ Notable features of this container.
 
 Ready Container For Production
 ==============================
-Generally, the container can run as-is, however, some changes SHOULD be made.
+Generally, the container can be run as-is, however, some changes SHOULD be made.
 
 For starters, if you look in the Dockerfile, it lists a number of items that can be removed because they are mostly for diagnostics during development or customization of the container. The final container does not need these items.
 
-Second, you will want to include SSL certs, customize the Apache conf file add any Flask, Apache or "other" libraries and extensions as you build out the container.
+Second, you will want to include SSL certs, customize the Apache conf file, add any Flask, Apache or "other" libraries and extensions as you build out the container.
 
 Security matters to, the example base container includes adding some users and groups in the enviroment to facilitate the web server's access to files OUTSIDE the container that may be mounted inside it. PLEASE PLEASE review Apache's documentation on security before deploying this container into production before doing so. The intent of this repo is to demonstrate how to make a Flask container. I work in Information Security by trade, PLEASE don't give me more work, secure your stuff, just don't deploy it blindly. Thank You.
 
-You can eliminate this requirement by including all the code in the container, but more then likely you will want to customize this too, both the user/groups/perms and the mounted volumes.
+As for the user/groups/perms, you can eliminate this requirement by including all the code in the container, but more then likely you will want to customize this too, both the user/groups/perms and the mounted volumes.
 
 Lastly, the ports exposed by the docker-compose.yml file will NOT be appropriate for any production install, you will want to alter these to expose the normal HTTP/HTTPS ports, or a select set of ports appropriate to your installation requirements.
