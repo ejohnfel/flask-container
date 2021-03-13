@@ -8,12 +8,13 @@ The container files, the README and other code here are to provide examples, not
 For Apache config details, see the Official Apache container page on Docker Hub. However, please note, the my-http.conf supplied with this repo DOES include some customizations and sample items, please just don't blow it away until you are sure you don't need it.
 
 Notable features of this container.
-- This container is based on the Official Apache container (which is subject to change and may break this example)
+- No warranty or guarantees of any kind, use at your own risk.
+- This example does not use cutting edge versions of Apache or Flask, functionality in this example may break over time.
+- This container is based on the Official Apache container (which is subject to change and, again, may break this example)
 - This container, while built to enable an easy entry into a Flask container, is not an official Flask distribution; I am just some guy who needed a Flask container.
 - The repo and project contains a number of ease-of-use items that I use to dev all my containers.
   - Optional alternate ENTRYPOINT for the container; the script allows for customization of the container startup sequence.
   - A makefile to facilitate quick builds, deploys, testing, shell access to the container, among other minor things.
-  - No warranties. Use at your own risk.
 - The exposed ports selected for this example are likely not suitable for production deployments, you will want to change these. They are created this way because I often do not have the default ports available for dev purposes.
   - Port 9090 is the external container port for 80 (HTTP)
   - Port 9443 is the external container port for 443 (HTTPS)
