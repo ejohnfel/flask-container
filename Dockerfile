@@ -27,8 +27,8 @@ COPY my-httpd.conf /usr/local/apache2/conf/httpd.conf
 RUN mkdir /usr/local/apache2/flask
 
 # flaskapp is an example Flask app that will run in this container, uncomment these to enable it
-#COPY flaskapp.wsgi /usr/local/apache2/flask
-#COPY flaskapp.py /usr/local/apache2/flask
+COPY flaskapp.wsgi /usr/local/apache2/flask
+COPY flaskapp.py /usr/local/apache2/flask
 
 # SSL Key Examples (You will likely, eventually, want SSL keys)
 #COPY ssl_cert.cer /usr/local/apache2/conf/server.crt
