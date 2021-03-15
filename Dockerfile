@@ -49,7 +49,7 @@ apt-get -y install python python-pip && \
 pip install flask && \
 apt-get -y install libapache2-mod-wsgi && \
 mkdir -p /var/run/apache2 && \
-pip install flask-etf flask-moment flask-bootstrap flask-script
+pip install flask-wtf flask-moment flask-bootstrap flask-script
 
 # Flask uses the WSGI interface, include WSGI Mod here
 RUN cp /usr/lib/apache2/modules/mod_wsgi.so /usr/local/apache2/modules
